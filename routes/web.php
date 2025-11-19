@@ -33,3 +33,6 @@ Route::post('/tasks/store', [TaskController::class, 'store'])->name('task.store'
 // TEAM MEMBERS
 Route::get('/team/create', [TeamController::class, 'create'])->name('team.create');
 Route::post('/team/store', [TeamController::class, 'store'])->name('team.store');
+
+// LOGOUT
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');

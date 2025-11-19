@@ -5,12 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
    public function login(Request $request)
    {
-        if (auth()->check()) {
+        if (Auth::check()) {
             return redirect('/dashboard');
         }
         $request->validate([
@@ -18,7 +19,7 @@ class AuthController extends Controller
             'password' => 'required'
         ]);
         $credentials = $request->only('email', 'password');
-        if (auth()->attempt($credentials)) {
+        if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             return redirect('/dashboard');
         }
@@ -39,9 +40,17 @@ class AuthController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password)
         ]);
-        auth()->login($user);
-        return redirect()
-            ->to('/welcome')   // الصفحة اللي بعد التسجيل
-            ->with('success', 'Account created successfully!');
+        Auth::login($user);
+        $request->session()->regenerate();
+
+        return redirect()->to('/dashboard');
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/login');
     }
 }
