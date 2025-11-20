@@ -18,10 +18,6 @@ Route::post('/register', [AuthController::class, 'register'])->name('register.po
 Route::get('/dashboard', function () {
     return Auth::check() ?view('dashboard'): redirect('/');
 })->name('dashboard');
-// PROJECTS
-Route::get('/projects/create', [ProjectController::class, 'create'])->name('project.create');
-Route::post('/projects/store', [ProjectController::class, 'store'])->name('project.store');
-
 // TASKS
 Route::get('/tasks/create', [TaskController::class, 'create'])->name('task.create');
 Route::post('/tasks/store', [TaskController::class, 'store'])->name('task.store');
@@ -40,3 +36,7 @@ Route::get('/settings', function () {
     return view('settings');
 })->name('settings.update');
 Route::post('/settings', [SettingsController::class, 'update'])->name('settings.update');
+    
+Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
+Route::get('/projects/create', [ProjectController::class, 'create'])->name('projects.create');
+Route::post('/projects/store', [ProjectController::class, 'store'])->name('projects.store');

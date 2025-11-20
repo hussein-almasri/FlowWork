@@ -85,14 +85,6 @@
             <p>Project deadlines will appear here.</p>
         </div>
 
-        {{-- 7. QUICK ACTIONS --}}
-        <div class="section">
-            <h3>⚡ Quick Actions</h3>
-
-            <a href="{{ route('project.create') }}" class="shortcut-btn">➕ Create Project</a>
-            <a href="{{ route('task.create') }}" class="shortcut-btn">➕ Add Task</a>
-            <a href="{{ route('team.create') }}" class="shortcut-btn">👥 Add Team Member</a>
-        </div>
 
     </div>
 

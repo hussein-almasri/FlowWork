@@ -38,6 +38,8 @@
     <a href="/projects">📁 Projects</a>
     <a href="/tasks">📝 Tasks</a>
     <a href="/team">👥 Team</a>
+    <a href="/kanban">🗂 Kanban</a>
+    <a href="/calendar">📅 Calendar</a>
 </div>
 
 <!-- MAIN CONTENT -->

@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
+    public function index()
+    {
+        return view('projects.index');
+    }
+
     public function create()
     {
         return view('projects.create');
@@ -13,9 +18,17 @@ class ProjectController extends Controller
 
     public function store(Request $request)
     {
-        // هنا تخزين المشروع
-        // إذا بدك أربط DB أحط الكود لاحقاً
+        // validation
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required'
+        ]);
 
-        return redirect('/dashboard')->with('success', 'Project created successfully!');
+        // save later after DB setup
+
+        return redirect()->route('projects.index')->with('success', 'Project created successfully!');
     }
+
+
+
 }
