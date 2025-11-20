@@ -30,3 +30,10 @@ Route::post('/team/store', [TeamController::class, 'store'])->name('team.store')
 
 // LOGOUT
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
+
+Route::get('/settings', function () {
+    return view('settings');
+})->name('settings.update');

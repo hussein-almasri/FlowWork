@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: -webkit-linear-gradient(left, #003366,#004080,#0059b3,#0073e6);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding-top: 110px;
+}
+
+/* Page Wrapper Box */
+.page-box {
+    width: 900px;
+    background: white;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0px 15px 25px rgba(0,0,0,0.25);
+}
+
+/* Page Title */
+.page-box h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #003366;
+}
+
+/* Section Title */
+.page-box h2 {
+    font-size: 22px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    color: #004080;
+}
+
+/* Normal Text */
+.page-box p,
+.page-box li {
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 8px;
+    color: #1a1a1a;
+}
+
+.page-box ul {
+    margin-left: 20px;
+}
+
+/* Inputs & Form */
+.page-box input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    background: #f9f9f9;
+}
+
+.page-box input:focus {
+    border-color: #1a75ff;
+    outline: none;
+}
+
+/* Save Button */
+.save-btn {
+    margin-top: 15px;
+    padding: 12px 20px;
+    background: -webkit-linear-gradient(left,#003366,#004080,#0059b3,#0073e6);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.save-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Adjust for layout sidebar */
+.page-content {
+    margin-left: 260px !important;
+}
