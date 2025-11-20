@@ -30,20 +30,31 @@ class AuthController extends Controller
     
     public function register(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
+        // Validate input and show friendly messages
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:6|confirmed'
+        ], [
+            'name.required' => 'Name is required.',
+            'email.required' => 'Email is required.',
+            'email.email' => 'Please enter a valid email address.',
+            'email.unique' => 'This email is already registered.',
+            'password.required' => 'Password is required.',
+            'password.min' => 'Password must be at least 6 characters.',
+            'password.confirmed' => 'Password confirmation does not match.',
         ]);
+        // Create user
         $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password)
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'password' => Hash::make($validated['password']),
         ]);
+        // Login immediately
         Auth::login($user);
         $request->session()->regenerate();
 
-        return redirect()->to('/dashboard');
+        return redirect('/dashboard')->with('success', 'Account created successfully! 👌');
     }
 
     public function logout(Request $request)
@@ -51,6 +62,6 @@ class AuthController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect('/login');
+        return redirect('/');
     }
 }

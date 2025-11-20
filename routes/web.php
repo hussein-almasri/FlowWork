@@ -5,22 +5,16 @@ use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\TeamController;
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.form');
 });
-Route::get('/login', function () {
-    return view('login');
-})->name('login');
 
-Route::get('/register', function () {
-    return view('register');
-})->name('register');
 use App\Http\Controllers\AuthController;
 
 Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 Route::post('/register', [AuthController::class, 'register'])->name('register.post');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return Auth::check() ?view('dashboard'): redirect('/');
 })->name('dashboard');
 // PROJECTS
 Route::get('/projects/create', [ProjectController::class, 'create'])->name('project.create');
