@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Register</title>
+
   <style>
     body{
       margin:0;
@@ -20,6 +21,12 @@
       width:300px;
       border-radius:10px;
       box-shadow:0 4px 15px rgba(0,0,0,0.1);
+      text-align:center;
+    }
+    h3 {
+      margin-top:0;
+      color:#1e40af;
+      margin-bottom:15px;
     }
     input{
       width:100%;
@@ -36,23 +43,33 @@
       border:none;
       border-radius:6px;
       font-weight:bold;
+      cursor:pointer;
+      margin-top:10px;
+    }
+    button:hover {
+      background:#15803d;
     }
   </style>
 </head>
 <body>
+
   <div class="form-box">
     <h3>إنشاء حساب</h3>
-  <form method="POST" action="{{ route('register') }}">
-    @csrf
 
-    <input type="text" name="name" required>
-    <input type="email" name="email" required>
-    <input type="password" name="password" required>
-    <input type="password" name="password_confirmation" required>
+    <form method="POST" action="{{ route('register') }}">
+      @csrf
 
-    <button type="submit">Register</button>
-</form>
+      <input type="text" name="name" placeholder="الاسم الكامل" required>
 
+      <input type="email" name="email" placeholder="البريد الإلكتروني" required>
+
+      <input type="password" name="password" placeholder="كلمة المرور" required>
+
+      <input type="password" name="password_confirmation" placeholder="تأكيد كلمة المرور" required>
+
+      <button type="submit">Register</button>
+    </form>
   </div>
+
 </body>
 </html>
