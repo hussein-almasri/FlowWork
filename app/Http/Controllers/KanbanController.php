@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+<<<<<<< HEAD
 use Illuminate\Http\Request;
 
 class KanbanController extends Controller
@@ -24,4 +25,19 @@ class KanbanController extends Controller
     return view('kanban.index', compact('todo', 'inProgress', 'done'));
 }
 
+=======
+use App\Models\Task;
+
+class KanbanController extends Controller
+{
+    public function index()
+    {
+        // Get tasks based on status
+        $todo = Task::where('status', 'todo')->get();
+        $inProgress = Task::where('status', 'in_progress')->get();
+        $done = Task::where('status', 'done')->get();
+
+        return view('kanban.index', compact('todo', 'inProgress', 'done'));
+    }
+>>>>>>> 3cafa3c14c5488658de336cea52e9522df12e173
 }
