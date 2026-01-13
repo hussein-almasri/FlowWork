@@ -21,17 +21,27 @@ class TeamController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'email' => 'required|email',
-            'role' => 'required'
+            'name'  => 'required',
+            'email' => 'required|email|unique:team_members,email',
+            'role'  => 'required'
         ]);
 
         TeamMember::create([
-            'name' => $request->name,
+            'name'  => $request->name,
             'email' => $request->email,
-            'role' => $request->role
+            'role'  => $request->role
         ]);
 
-        return redirect()->route('team.index')->with('success', 'Team member added successfully!');
+        return redirect()->route('team.index')
+                         ->with('success', 'Team member added successfully!');
+    }
+
+    // 🔥 دالة الحذف
+    public function destroy($id)
+    {
+        TeamMember::findOrFail($id)->delete();
+
+        return redirect()->route('team.index')
+                         ->with('success', 'Team member deleted successfully!');
     }
 }

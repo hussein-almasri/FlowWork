@@ -17,10 +17,24 @@
     @if($team->count() == 0)
         <p>No team members found.</p>
     @else
-        <ul>
+        <ul class="team-list">
             @foreach($team as $member)
-                <li>
-                    <b>{{ $member->name }}</b> — {{ $member->email }} — ({{ $member->role }})
+                <li class="team-item">
+                    <div class="member-text">
+                        <b>{{ $member->name }}</b> —
+                        {{ $member->email }} —
+                        ({{ $member->role }})
+                    </div>
+
+                    <!-- زر الحذف -->
+                    <form action="{{ route('team.destroy', $member->id) }}"
+                          method="POST"
+                          onsubmit="return confirm('Delete this member?');">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="delete-btn">deldte</button>
+
+                    </form>
                 </li>
             @endforeach
         </ul>

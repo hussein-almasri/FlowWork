@@ -67,3 +67,4 @@ class ProjectController extends Controller
             ->with('success', 'Project deleted successfully!');
     }
 }
+
