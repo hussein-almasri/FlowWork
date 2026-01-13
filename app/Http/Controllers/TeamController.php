@@ -36,7 +36,31 @@ class TeamController extends Controller
                          ->with('success', 'Team member added successfully!');
     }
 
-    // 🔥 دالة الحذف
+    public function edit($id)
+    {
+        $member = TeamMember::findOrFail($id);
+        return view('team.edit', compact('member'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'name'  => 'required',
+            'email' => 'required|email|unique:team_members,email,' . $id,
+            'role'  => 'required'
+        ]);
+
+        $member = TeamMember::findOrFail($id);
+        $member->update([
+            'name'  => $request->name,
+            'email' => $request->email,
+            'role'  => $request->role
+        ]);
+
+        return redirect()->route('team.index')
+                         ->with('success', 'Team member updated successfully!');
+    }
+
     public function destroy($id)
     {
         TeamMember::findOrFail($id)->delete();

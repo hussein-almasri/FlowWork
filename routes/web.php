@@ -35,8 +35,10 @@ Route::get('/dashboard', fn () =>
 */
 Route::get('/team', [TeamController::class, 'index'])->name('team.index');
 Route::get('/team/create', [TeamController::class, 'create'])->name('team.create');
+Route::get('/team/{id}/edit', [TeamController::class, 'edit'])->name('team.edit');
+Route::put('/team/{id}', [TeamController::class, 'update'])->name('team.update');
 Route::post('/team/store', [TeamController::class, 'store'])->name('team.store');
-Route::delete('/team/{id}', [TeamController::class, 'destroy'])->name('team.destroy'); // 🔥 الحذف
+Route::delete('/team/{id}', [TeamController::class, 'destroy'])->name('team.destroy');
 
 /*
 |--------------------------------------------------------------------------

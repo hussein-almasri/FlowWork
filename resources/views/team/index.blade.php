@@ -38,7 +38,7 @@
                     margin-bottom:10px;
                     background:#fff;
                 ">
-                    <!-- معلومات العضو -->
+                    <!-- info -->
                     <div style="color:#333;">
                         <b>{{ $member->name }}</b>
                         <span style="color:#666;">
@@ -46,27 +46,44 @@
                         </span>
                     </div>
 
-                    <!-- زر الحذف -->
-                    <form action="{{ route('team.destroy', $member->id) }}"
-                          method="POST"
-                          onsubmit="return confirm('Delete this member?');"
-                          style="margin:0;">
-                        @csrf
-                        @method('DELETE')
+                    <div style="display:inline-flex; justify-content: safe;">
+                        <!-- edit -->
+                        <a href="{{ route('team.edit', $member->id) }}"
+                        style="
+                                padding:4px 16px;
+                                background:#28a745;
+                                color:white;
+                                border:none;
+                                border-radius:8px;
+                                cursor:pointer;
+                                font-weight:600;
+                                text-decoration:none;
+                                margin-right:10px;
+                        ">
+                            Edit
+                        </a>
+                        <!-- delete -->
+                        <form action="{{ route('team.destroy', $member->id) }}"
+                            method="POST"
+                            onsubmit="return confirm('Delete this member?');"
+                            >
+                            @csrf
+                            @method('DELETE')
 
-                        <button type="submit"
-                                style="
-                                    padding:8px 16px;
-                                    background:#dc3545;
-                                    color:white;
-                                    border:none;
-                                    border-radius:8px;
-                                    cursor:pointer;
-                                    font-weight:600;
-                                ">
-                            Delete
-                        </button>
-                    </form>
+                            <button type="submit"
+                                    style="
+                                        padding:8px 16px;
+                                        background:#dc3545;
+                                        color:white;
+                                        border:none;
+                                        border-radius:8px;
+                                        cursor:pointer;
+                                        font-weight:600;
+                                    ">
+                                Delete
+                            </button>
+                        </form>
+                    </div>
                 </li>
             @endforeach
         </ul>
