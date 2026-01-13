@@ -61,9 +61,9 @@
             <!-- Team -->
             <div style="margin-bottom:8px;">
                 <b style="font-size:12px;">Team:</b>
-                <ol style="margin:4px 0 0 18px; padding:0;">
+                 <ol style="display:inline-table; margin:0 0 0 10px; padding-left:20px;">
                     @foreach ($project->team as $member)
-                        <li style="font-size:12px; color:#312424;">
+                        <li style="font-size: 12px; display:flexbox; margin-left:5px; color:#312424;">
                             {{ $member->name }}
                         </li>
                     @endforeach
