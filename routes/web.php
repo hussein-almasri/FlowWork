@@ -64,3 +64,8 @@ Route::get('/kanban', [KanbanController::class, 'index'])->name('kanban.index');
 Route::get('/about', fn () => view('about'))->name('about');
 Route::get('/settings', fn () => view('settings'))->name('settings');
 Route::post('/settings', [SettingsController::class, 'update'])->name('settings.update');
+Route::resource('projects', ProjectController::class);
+
+
+Route::get('/calendar', [CalendarController::class, 'index'])->name('calendar.index');
+
