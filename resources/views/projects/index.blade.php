@@ -25,71 +25,96 @@
 
     @foreach ($projects as $project)
         <div style="
-            padding:0px 0px 20px 20px;
+            padding:0px 20px 20px 20px;
             border:1px solid #ddd;
             border-radius:12px;
             margin-bottom:15px;
             background:#fff;
         ">
-            <h3 style="margin-bottom:0px; font-size: 28px;">{{ $project->name }}</h3>
-            <p style="margin-bottom:12px; color:#555; font-size:16px;">
-              {{ $project->description }}
+
+            <!-- HEADER (Project name + Tasks button same level) -->
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+                <h3 style="font-size:32px; ">
+                    {{ $project->name }}
+                </h3>
+
+                <a href="{{ route('tasks.index', ['project_id' => $project->id]) }}"
+                   style="
+                        padding:16px 32px;
+                        font-size:18px;
+                        font-weight:600;
+                        border-radius:8px;
+                        background:#272727;
+                        color:white;
+                        text-decoration:none;
+                        display:inline-block;
+                   ">
+                    Manage Tasks
+                </a>
+            </div>
+
+            <!-- Description -->
+            <p style="margin-bottom:10px; color:#555; font-size:16px;">
+                {{ $project->description }}
             </p>
 
-            <div style="margin-bottom:15px;">
-                <b style="font-size: 12px">Team:</b>
-                <ol style="display:inline-table; margin:0 0 0 10px; padding-left:20px;">
+            <!-- Team -->
+            <div style="margin-bottom:8px;">
+                <b style="font-size:12px;">Team:</b>
+                <ol style="margin:4px 0 0 18px; padding:0;">
                     @foreach ($project->team as $member)
-                        <li style="font-size: 12px; display:flexbox; margin-left:5px; color:#312424;">
+                        <li style="font-size:12px; color:#312424;">
                             {{ $member->name }}
                         </li>
                     @endforeach
                 </ol>
             </div>
-            <div style="display:inline-flex; gap:12px; align-items:right;">
-                <!-- -- Edit Button -- -->
-                <a href="{{ route('projects.edit', $project->id) }}"
-                    style="
-                    min-width:90px;
-                    text-align:center;
-                    padding:10px 0;
-                    background:#28a745;
-                    color:white;
-                    border-radius:8px;
-                    text-decoration:none;
-                    font-weight:600;
-                    display:inline-block;
-                  ">
-                  Edit
-                </a>
 
+            <!-- Buttons -->
+            <div style="display:flex; gap:12px; margin-top:8px;">
+
+                <!-- Edit -->
+                <form action="{{ route('projects.edit', $project->id) }}" method="GET" style="margin:0;">
+                    <button type="submit"
+                            style="
+                                min-width:90px;
+                                padding:10px 0;
+                                background:#28a745;
+                                color:white;
+                                border-radius:8px;
+                                border:none;
+                                cursor:pointer;
+                                font-weight:600;
+                            ">
+                        Edit
+                    </button>
+                </form>
+
+                <!-- Delete -->
                 <form action="{{ route('projects.destroy', $project->id) }}" 
                       method="POST"
                       onsubmit="return confirm('Are you sure you want to delete this project?');"
-                      style="display:inline-flex; justify-content: right;">
+                      style="margin:0;">
                     @csrf
                     @method('DELETE')
 
                     <button type="submit"
                             style="
                                 min-width:90px;
-                                text-align:center;
                                 padding:10px 0;
                                 background:#dc3545;
                                 color:white;
                                 border-radius:8px;
-                                text-decoration:none;
-                                font-weight:600;
-                                display:inline-block;
                                 border:none;
                                 cursor:pointer;
+                                font-weight:600;
                             ">
                         Delete
                     </button>
                 </form>
 
-
             </div>
+
         </div>
     @endforeach
 
