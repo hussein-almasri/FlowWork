@@ -7,6 +7,7 @@ use App\Http\Controllers\TaskController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\KanbanController;
+use App\Http\Controllers\CalendarController;
 
 /*
 |--------------------------------------------------------------------------
