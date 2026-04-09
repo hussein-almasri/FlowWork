@@ -12,7 +12,9 @@ class TaskController extends Controller
     public function index()
     {
         $projectsCount = Project::count();
-        $tasks = Task::with('project')->get();
+        $tasks = Task::with('project')
+        ->where('user_id', auth()->id())
+        ->get();
 
         return view('tasks.index', compact('projectsCount', 'tasks'));
     }
@@ -47,7 +49,14 @@ class TaskController extends Controller
             'priority'   => $request->priority,
             'project_id' => $request->project_id,
             'status'     => 'todo', // الحالة الافتراضية
-        ]);
+            'user_id'    => auth()->id(), // 🔥 هذا
+            ]);
+            ActivityLog::create([
+                'user_id' => auth()->id(),
+                'action' => 'created',
+                'target_type' => 'task',
+                'target_name' => $request->name,
+            ]);
 
         return redirect()->route('tasks.index');
     }
@@ -61,6 +70,12 @@ class TaskController extends Controller
 
         $task->update([
             'status' => $request->status,
+        ]);
+                ActivityLog::create([
+            'user_id' => auth()->id(),
+            'action' => 'updated',
+            'target_type' => 'task',
+            'target_name' => $task->name,
         ]);
 
         return redirect()->route('tasks.index');

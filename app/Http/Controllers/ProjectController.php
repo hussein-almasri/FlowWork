@@ -5,13 +5,16 @@ namespace App\Http\Controllers;
 use App\Models\Project;
 use App\Models\TeamMember;
 use Illuminate\Http\Request;
+use App\Models\ActivityLog;
 
 class ProjectController extends Controller
 {
     /* عرض المشاريع */
     public function index()
     {
-        $projects = Project::with('team')->get();
+       $projects = Project::with('team')
+        ->where('user_id', auth()->id())
+        ->get();
         return view('projects.index', compact('projects'));
     }
 
@@ -25,11 +28,17 @@ class ProjectController extends Controller
     /* تخزين مشروع جديد */
     public function store(Request $request)
     {
-        $project = Project::create([
+            $project = Project::create([
             'name' => $request->name,
             'description' => $request->description,
+            'user_id' => auth()->id(), // 🔥 هذا المهم
         ]);
-
+        ActivityLog::create([
+            'user_id' => auth()->id(),
+            'action' => 'created',
+            'target_type' => 'project',
+            'target_name' => $project->name,
+        ]);
         // ربط أعضاء الفريق
         $project->team()->attach($request->team_members);
 
@@ -52,6 +61,12 @@ class ProjectController extends Controller
         $project->update([
             'name' => $request->name,
             'description' => $request->description,
+        ]);
+        ActivityLog::create([
+            'user_id' => auth()->id(),
+            'action' => 'updated',
+            'target_type' => 'project',
+            'target_name' => $project->name,
         ]);
 
         // تحديث أعضاء الفريق

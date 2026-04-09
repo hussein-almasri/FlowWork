@@ -1,86 +1,82 @@
 @extends('layout.main')
 
 @section('content')
-<link rel="stylesheet" href="/css/pagebox.css">
 
 <style>
-    .kanban-container {
-        display: flex;
-        gap: 25px;
-        padding: 20px;
-    }
-
-    .kanban-column {
-        flex: 1;
-        background: #f2f5fa;
-        padding: 15px;
-        border-radius: 15px;
-        box-shadow: 0px 5px 12px rgba(0,0,0,0.15);
-    }
-
-    .kanban-column h2 {
-        margin: 0 0 15px;
-        font-size: 20px;
-        color: #003366;
-        text-align: center;
-    }
-
-    .task-card {
-        background: white;
-        padding: 12px;
-        margin-bottom: 12px;
-        border-radius: 12px;
-        box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
-        border-left: 5px solid #0073e6;
-    }
-
-    .task-card p {
-        margin: 5px 0;
-    }
+.kanban {
+    display: flex;
+    gap: 20px;
+}
+.column {
+    flex: 1;
+    background: #f3f4f6;
+    padding: 15px;
+    border-radius: 10px;
+}
+.task {
+    background: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    cursor: grab;
+}
 </style>
 
-<div class="page-box">
+<div class="kanban">
 
-    <h1>Kanban Board</h1>
+    <div class="column" ondrop="drop(event, 'todo')" ondragover="allowDrop(event)">
+        <h3>To Do</h3>
+        @foreach($todo as $task)
+            <div class="task" draggable="true" ondragstart="drag(event)" data-id="{{ $task->id }}">
+                {{ $task->name }}
+            </div>
+        @endforeach
+    </div>
 
-    <div class="kanban-container">
+    <div class="column" ondrop="drop(event, 'in_progress')" ondragover="allowDrop(event)">
+        <h3>In Progress</h3>
+        @foreach($inProgress as $task)
+            <div class="task" draggable="true" ondragstart="drag(event)" data-id="{{ $task->id }}">
+                {{ $task->name }}
+            </div>
+        @endforeach
+    </div>
 
-        {{-- To Do --}}
-        <div class="kanban-column">
-            <h2>📝 To Do</h2>
-            @foreach($todo as $task)
-                <div class="task-card">
-                    <p><strong>{{ $task->name }}</strong></p>
-                    <p>Priority: {{ $task->priority }}</p>
-                    <p>Deadline: {{ $task->deadline }}</p>
-                </div>
-            @endforeach
-        </div>
-
-        {{-- In Progress --}}
-        <div class="kanban-column">
-            <h2>🚧 In Progress</h2>
-            @foreach($inProgress as $task)
-                <div class="task-card">
-                    <p><strong>{{ $task->name }}</strong></p>
-                    <p>Status: In Progress</p>
-                    <p>Deadline: {{ $task->deadline }}</p>
-                </div>
-            @endforeach
-        </div>
-
-        {{-- Done --}}
-        <div class="kanban-column">
-            <h2>✅ Done</h2>
-            @foreach($done as $task)
-                <div class="task-card">
-                    <p><strong>{{ $task->name }}</strong></p>
-                    <p>Completed ✔</p>
-                </div>
-            @endforeach
-        </div>
-
+    <div class="column" ondrop="drop(event, 'done')" ondragover="allowDrop(event)">
+        <h3>Done</h3>
+        @foreach($done as $task)
+            <div class="task" draggable="true" ondragstart="drag(event)" data-id="{{ $task->id }}">
+                {{ $task->name }}
+            </div>
+        @endforeach
     </div>
 
 </div>
+
+<script>
+let taskId = null;
+
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    taskId = ev.target.getAttribute("data-id");
+}
+
+function drop(ev, status) {
+    ev.preventDefault();
+
+    fetch(`/tasks/${taskId}/move`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+        },
+        body: JSON.stringify({ status: status })
+    })
+    .then(() => location.reload());
+}
+</script>
+
 @endsection
