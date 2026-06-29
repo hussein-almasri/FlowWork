@@ -1,59 +1,388 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🚀 FlowWork
+
+<div align="center">
+
+### **A Modern Project Management System**
+
+*A lightweight Laravel-based web application for managing projects, tasks, teams, and deadlines.*
+
+![Laravel](https://img.shields.io/badge/Laravel-12-FF2D20?style=for-the-badge&logo=laravel)
+![PHP](https://img.shields.io/badge/PHP-8.2-777BB4?style=for-the-badge&logo=php)
+![SQLite](https://img.shields.io/badge/SQLite-Database-003B57?style=for-the-badge&logo=sqlite)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-v4-06B6D4?style=for-the-badge&logo=tailwindcss)
+
+</div>
+
+---
+
+# 📖 About
+
+**FlowWork** is a web-based **Project Management System** built using **Laravel 12**.
+
+The project was developed as part of the **Software Development** course at university, where our team designed and implemented a complete project management solution following software engineering principles.
+
+FlowWork helps teams organize projects, manage tasks, assign members, and monitor progress through an intuitive dashboard and Kanban board.
+
+---
+
+# 👨‍💻 Development Team
+
+This project was developed by:
+
+- Hussein Almasri
+- Sadeen
+- Abdelmonem
+
+---
+
+# ✨ Features
+
+## 🔐 Authentication
+
+- User Registration
+- User Login
+- Secure Authentication
+- Session Management
+
+---
+
+## 📊 Dashboard
+
+- Project Statistics
+- Task Statistics
+- Completed Tasks
+- Overdue Tasks
+- Recent Activities
+- Task Status Charts
+
+---
+
+## 📁 Project Management
+
+- Create Projects
+- Edit Projects
+- Delete Projects
+- Assign Team Members
+- Project Descriptions
+
+---
+
+## ✅ Task Management
+
+- Create Tasks
+- Assign Tasks to Projects
+- Priority Levels
+- Due Dates
+- Task Status
+- Progress Tracking
+
+---
+
+## 👥 Team Management
+
+- Add Team Members
+- Edit Members
+- Delete Members
+- Assign Roles
+
+---
+
+## 📋 Kanban Board
+
+- Drag & Drop Tasks
+- To Do
+- In Progress
+- Done
+
+---
+
+## 📅 Calendar
+
+- View Project Deadlines
+- View Task Deadlines
+- Deadline Tracking
+
+---
+
+## ⚙ Settings
+
+- Update Profile
+- Change Password
+- User Preferences
+
+---
+
+## 📜 Activity Logs
+
+- Track Project Updates
+- Track Task Updates
+- User Activity History
+
+---
+
+# 🚀 Why FlowWork?
+
+✔ Clean MVC Architecture
+
+✔ Responsive UI
+
+✔ Laravel Best Practices
+
+✔ SQLite Database
+
+✔ Kanban Board
+
+✔ Dashboard Analytics
+
+✔ Team Collaboration
+
+✔ Secure Authentication
+
+---
+
+# 🛠 Tech Stack
+
+| Technology | Description |
+|------------|-------------|
+| Laravel 12 | PHP Framework |
+| PHP 8.2 | Backend Language |
+| SQLite | Database |
+| Blade | Templating Engine |
+| Tailwind CSS | UI Framework |
+| Chart.js | Dashboard Charts |
+| JavaScript | Frontend Interactions |
+| Vite | Asset Bundler |
+
+---
+
+# 📸 Screenshots
+
+## Dashboard
 
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+<img src="screenshots/dashboard.png" width="800">
 </p>
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Projects
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+<p align="center">
+<img src="screenshots/projects.png" width="800">
+</p>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## Tasks
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+<p align="center">
+<img src="screenshots/tasks.png" width="800">
+</p>
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+## Kanban Board
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+<p align="center">
+<img src="screenshots/kanban.png" width="800">
+</p>
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## Calendar
 
-## Contributing
+<p align="center">
+<img src="screenshots/calendar.png" width="800">
+</p>
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+## Team Members
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+<p align="center">
+<img src="screenshots/team.png" width="800">
+</p>
 
-## Security Vulnerabilities
+---
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+# 🏛 Architecture
 
-## License
+The project follows the **MVC (Model View Controller)** architecture.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```
+User
+ │
+ ▼
+Routes
+ │
+ ▼
+Controllers
+ │
+ ▼
+Models
+ │
+ ▼
+SQLite Database
+ │
+ ▼
+Blade Views
+```
+
+---
+
+# 📂 Project Structure
+
+```text
+app/
+├── Http/
+│   └── Controllers/
+├── Models/
+├── Providers/
+
+database/
+├── migrations/
+├── factories/
+└── seeders/
+
+resources/
+├── views/
+├── css/
+└── js/
+
+routes/
+└── web.php
+
+public/
+
+storage/
+```
+
+---
+
+# ⚙ Installation
+
+Clone the repository
+
+```bash
+git clone https://github.com/hussein-almasri/FlowWork.git
+```
+
+Go to project
+
+```bash
+cd FlowWork
+```
+
+Install dependencies
+
+```bash
+composer install
+```
+
+Copy environment file
+
+```bash
+cp .env.example .env
+```
+
+Generate application key
+
+```bash
+php artisan key:generate
+```
+
+Run migrations
+
+```bash
+php artisan migrate
+```
+
+Install frontend dependencies
+
+```bash
+npm install
+```
+
+Run Vite
+
+```bash
+npm run dev
+```
+
+Start Laravel Server
+
+```bash
+php artisan serve
+```
+
+---
+
+# ▶ Build
+
+Frontend
+
+```bash
+npm run build
+```
+
+Run Tests
+
+```bash
+php artisan test
+```
+
+---
+
+# 💾 Database
+
+The project uses **SQLite** by default.
+
+It can also be configured to use:
+
+- MySQL
+- PostgreSQL
+- MariaDB
+
+---
+
+# 🎯 Learning Outcomes
+
+This university project helped us practice:
+
+- Software Development Lifecycle
+- Team Collaboration
+- MVC Architecture
+- Database Design
+- Authentication
+- CRUD Operations
+- Laravel Framework
+- Project Planning
+- Team Management Systems
+
+---
+
+# 📌 Future Improvements
+
+- Notifications
+- File Attachments
+- Real Calendar View
+- Dark Mode
+- REST API
+- Email Notifications
+- Mobile Version
+
+---
+
+# 📄 License
+
+This project was developed for educational purposes as part of the **Software Development** course.
+
+---
+
+# ❤️ Developed By
+
+- Hussein Almasri
+- Sadeen
+- Abdelmonem
+
+Software Development Course Project
