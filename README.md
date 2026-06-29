@@ -160,7 +160,7 @@ This project was developed by:
 ## Dashboard
 
 <p align="center">
-<img src="screenshots/screenshots" width="800">
+<img src="screenshots/Screenshot 2026-06-30 014058.png" width="800">
 </p>
 
 ---
