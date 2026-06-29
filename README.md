@@ -160,7 +160,7 @@ This project was developed by:
 ## Dashboard
 
 <p align="center">
-  <img src="screenshots/dashboard.png" width="900">
+<img src="dashboard.png" width="900">
 </p>
 
 ---
@@ -168,7 +168,7 @@ This project was developed by:
 ## Projects
 
 <p align="center">
-  <img src="screenshots/projects.png" width="900">
+<img src="projects.png" width="900">
 </p>
 
 ---
@@ -176,7 +176,7 @@ This project was developed by:
 ## Tasks
 
 <p align="center">
-  <img src="screenshots/tasks.png" width="900">
+<img src="tasks.png" width="900">
 </p>
 
 ---
@@ -184,7 +184,7 @@ This project was developed by:
 ## Kanban Board
 
 <p align="center">
-  <img src="screenshots/kanban.png" width="900">
+<img src="kanban.png" width="900">
 </p>
 
 ---
@@ -192,7 +192,7 @@ This project was developed by:
 ## Calendar
 
 <p align="center">
-  <img src="screenshots/calendar.png" width="900">
+<img src="calendar.png" width="900">
 </p>
 
 ---
@@ -200,8 +200,7 @@ This project was developed by:
 ## Team Members
 
 <p align="center">
-  <img src="screenshots/team.png" width="900">
-</p>
+<img src="team.png" width="900"></p>
 ---
 
 # 🏛 Architecture
